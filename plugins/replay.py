@@ -7,7 +7,7 @@ class Plugin:
     def __init__(self, bus):
         self.bus = bus
         bus.subscribe_map({'replay_request': lambda d: self.replay('long', 'manual', {}),
-                           'score_goal': lambda d: self.replay('short', 'goal', d)},
+                           'increment_score': lambda d: self.replay('short', 'goal', {})},
                           thread=True)
 
     def replay(self, replay_type, trigger, extra={}):
